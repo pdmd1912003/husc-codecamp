@@ -23,4 +23,12 @@ contract Election {
 
     // TODO 8: hàm getWinner() trả về 2 mảng: tên và số phiếu của tất cả người thắng (có thể hòa)
     // Gợi ý: tìm max vote trước → đếm số người đạt max → tạo mảng → fill
+
+    // TODO 9: hàm getAllCandidates()
+    // Trả về toàn bộ danh sách Candidate[]
+    // Gợi ý:
+    // - Tạo một mảng mới có kích thước candidatesCount
+    // - Duyệt từ 1 → candidatesCount
+    // - Gán từng candidate vào mảng
+    // - return mảng này
 }
