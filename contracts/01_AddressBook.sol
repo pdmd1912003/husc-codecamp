@@ -2,37 +2,53 @@
 pragma solidity ^0.8.0;
 
 contract AddressBook {
-    // TODO 1: Tạo mapping lưu danh sách bí danh (alias) cho từng địa chỉ người dùng
-    // mapping(address => string[]) private ...
 
-    // TODO 2: Tạo mapping lưu danh sách contact (số điện thoại / địa chỉ...) của từng người dùng
-    // mapping(address => string[]) private ...
+    // TODO 1: Tạo struct Entry gồm:
+    //  - aliasName: tên alias
+    //  - contact: địa chỉ hoặc thông tin liên hệ
+    struct Entry {
+        string aliasName;
+        string contact;
+    }
 
-    // TODO 3: Viết hàm thêm contact + alias
-    // Gợi ý: push vào 2 mảng tương ứng
-    function addContact(string memory addressalias, string memory contact) public {
+    // TODO 2: Tạo mapping sao cho:
+    //  Mỗi user (msg.sender) có một danh sách Entry của riêng họ
+    mapping(address => Entry[]) private userEntries;
+
+    // TODO 3: Viết hàm addEntry(aliasName, contact)
+    //  - Thêm một Entry mới vào danh sách của msg.sender
+    //  - Dùng push để thêm phần tử
+    function addEntry(string memory aliasName, string memory contact) public {
         // code here
     }
 
-    // TODO 4: Viết hàm lấy toàn bộ contacts của người gọi
-    function getContacts() public view returns (string[] memory) {
-        // return ...
-    }
-
-    // TODO 5: Viết hàm lấy toàn bộ alias của người gọi
-    function getAliases() public view returns (string[] memory) {
-        // return ...
-    }
-
-    // TODO 6: Viết hàm xoá 1 contact khỏi danh sách người gọi
-    // Gợi ý: lặp → so sánh bằng keccak256 → delete phần tử tìm thấy
-    function removeContact(string memory contact) public {
+    // TODO 4: Viết hàm getEntries()
+    //  - Trả về toàn bộ danh sách Entry của msg.sender
+    //  - Đây là hàm view
+    function getEntries() public view returns (Entry[] memory) {
         // code here
     }
 
-    // TODO 7: Viết hàm xoá 1 alias khỏi danh sách người gọi
-    // Gợi ý: tương tự removeContact
-    function removeAlias(string memory addressalias) public {
+    // TODO 5: Viết hàm findByAlias(aliasName)
+    //  - Duyệt qua toàn bộ danh sách của msg.sender
+    //  - So sánh alias bằng keccak256(bytes(...))
+    //  - Nếu tìm thấy → return Entry tương ứng
+    //  - Nếu KHÔNG tìm thấy → return Entry("", "")
+    function findByAlias(string memory aliasName)
+        public
+        view
+        returns (Entry memory)
+    {
+        // code here
+    }
+
+    // TODO 6: Viết hàm removeByAlias(aliasName)
+    //  - Duyệt danh sách userEntries[msg.sender]
+    //  - Khi tìm thấy alias cần xoá, dùng kỹ thuật "swap-and-pop":
+    //      + ghi đè phần tử cần xoá bằng phần tử cuối
+    //      + pop() để xoá phần tử cuối
+    //  - Thoát vòng lặp sau khi xoá
+    function removeByAlias(string memory aliasName) public {
         // code here
     }
 }
