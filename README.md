@@ -11,7 +11,7 @@ Bộ sưu tập 6 bài tập được thiết kế đặc biệt cho người m�
    Tạo token cơ bản có quyền mint chỉ owner – học pattern owner và chuyển token đơn giản.
 
 3. [**AddressBook**](./contracts/03_AddressBook.sol)  
-   Danh bạ địa chỉ sử dụng `struct`, mảng động, mapping và sửa bug chia tiền.
+   Danh bạ địa chỉ sử dụng `struct`, mảng động, mapping
 
 4. [**SimpleToken**](./contracts/04_SimpleToken.sol)  
    Viết token ERC-20 cơ bản hoàn chỉnh: `transfer`, `approve`, `transferFrom`, `allowance` và `event`.
